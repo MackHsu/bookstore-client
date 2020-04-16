@@ -1,5 +1,6 @@
 <template>
   <div class="store">
+    test content.
     <BookCard v-for="(book, index) in books.slice((pageIndex - 1) * 10, pageIndex * 10)"
               :key="index"
               :name="book.name"
