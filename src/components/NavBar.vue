@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-light border-bottom mt-1">
-      <a class="navbar-brand" href="#">BookStore</a>
+      <a class="navbar-brand" href="#/store">BookStore</a>
       <ul class="nav nav-fill nav-pills">
         <li class="nav-item">
           <a

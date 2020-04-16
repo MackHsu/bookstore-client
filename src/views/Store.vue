@@ -1,10 +1,10 @@
 <template>
   <div class="store">
-    <el-row gutter="20">
+    <el-row >
       <BookCard
         v-for="(book, index) in books.slice(
-          (pageIndex - 1) * 10,
-          pageIndex * 10
+          (pageIndex - 1) * 12,
+          pageIndex * 12
         )"
         :key="index"
         :name="book.name"
@@ -16,11 +16,11 @@
     <el-pagination
       layout="prev, pager, next"
       :total="books.length"
-      :page-size="10"
+      :page-size="12"
       :hide-on-single-page="false"
       @current-change="changePage"
     ></el-pagination>
-    currentpage: {{ pageIndex }}
+    <!-- currentpage: {{ pageIndex }} -->
   </div>
 </template>
 

@@ -18,6 +18,7 @@ module.exports = {
     // 强制在注释中 // 或 /* 使用一致的空格
     "spaced-comment": 0,
     // always-multiline：多行模式必须带逗号，单行模式不能带逗号
+    "object-curly-spacing": 0,
     "comma-dangle": [1, "never"],
     // 强制使用一致的反勾号、双引号或单引号
     quotes: 0,

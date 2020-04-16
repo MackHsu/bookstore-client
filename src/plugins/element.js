@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {Row, Col, Button, Card, Pagination, InputNumber, Container } from 'element-ui'
+import { Row, Col, Button, Card, Pagination, InputNumber, Container } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Card)
