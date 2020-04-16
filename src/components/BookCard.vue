@@ -1,4 +1,5 @@
 <template>
+<el-col :xs="24" :sm="12" :md="8" >
   <el-card class="box-card">
     <img src="../assets/bookcover.webp" :alt="name" class="book-img" />
     <div class="book-title">{{name}}</div>
@@ -7,6 +8,7 @@
     <div class="book-desc">简介：{{desc}}</div>
     <el-button>添加购物车</el-button>
   </el-card>
+</el-col>
 </template>
 
 <script>
