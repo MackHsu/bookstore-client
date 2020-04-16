@@ -1,4 +1,5 @@
 <template>
+<el-col :xs="24" :sm="12" :md="8" >
   <el-card class="box-card">
     <img src="../assets/bookcover.webp"
          :alt="name"
@@ -17,6 +18,7 @@
       <el-button type="danger">添加购物车</el-button>
     </div>
   </el-card>
+</el-col>
 </template>
 
 <script>

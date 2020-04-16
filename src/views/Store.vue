@@ -1,30 +1,39 @@
 <template>
   <div class="store">
-    test content.
-    <BookCard v-for="(book, index) in books.slice((pageIndex - 1) * 10, pageIndex * 10)"
-              :key="index"
-              :name="book.name"
-              :author="book.author"
-              :desc="book.desc"
-              :price="book.price" />
-    <el-pagination layout="total, prev, pager, next, jumper"
-                   :total="books.length"
-                   :page-size="10"
-                   :hide-on-single-page="true"
-                   @current-change="changePage"></el-pagination>
+    <el-row gutter="20">
+      <BookCard
+        v-for="(book, index) in books.slice(
+          (pageIndex - 1) * 10,
+          pageIndex * 10
+        )"
+        :key="index"
+        :name="book.name"
+        :author="book.author"
+        :desc="book.desc"
+      />
+    </el-row>
+
+    <el-pagination
+      layout="prev, pager, next"
+      :total="books.length"
+      :page-size="10"
+      :hide-on-single-page="false"
+      @current-change="changePage"
+    ></el-pagination>
+    currentpage: {{ pageIndex }}
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import BookCard from '../components/BookCard.vue'
+import { mapState } from "vuex";
+import BookCard from "../components/BookCard.vue";
 export default {
-  name: 'Store',
+  name: "Store",
 
-  data () {
+  data() {
     return {
       pageIndex: 1
-    }
+    };
   },
 
   components: {
@@ -38,10 +47,10 @@ export default {
   },
 
   methods: {
-    changePage (currentPage) {
-      this.pageIndex = currentPage
-      scrollTo(0, 0)
+    changePage(currentPage) {
+      this.pageIndex = currentPage;
+      scrollTo(0, 0);
     }
   }
-}
+};
 </script>
