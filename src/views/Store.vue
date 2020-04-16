@@ -4,13 +4,13 @@
               :key="index"
               :name="book.name"
               :author="book.author"
-              :desc="book.desc" />
-    <el-pagination layout="prev, pager, next"
+              :desc="book.desc"
+              :price="book.price" />
+    <el-pagination layout="total, prev, pager, next, jumper"
                    :total="books.length"
                    :page-size="10"
-                   :hide-on-single-page="false"
+                   :hide-on-single-page="true"
                    @current-change="changePage"></el-pagination>
-    currentpage: {{pageIndex}}
   </div>
 </template>
 
