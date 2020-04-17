@@ -43,7 +43,7 @@
       <span slot="footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="danger"
-                   @click="deleteOrder(indexToDelete, tableData)">确 定</el-button>
+                   @click="deleteOrder(indexToDelete)">确 定</el-button>
       </span>
     </el-dialog>
     <div class="commit-orders">
@@ -82,8 +82,7 @@ export default {
       this.dialogVisible = true
       this.indexToDelete = index
     },
-    deleteOrder (index, rows) {
-      // rows.splice(index, 1)
+    deleteOrder (index) {
       this.$store.commit('deleteOrder', index)
       this.dialogVisible = false
     }
