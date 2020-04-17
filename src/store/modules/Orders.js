@@ -31,6 +31,10 @@ const getters = {
             sum += order.price * order.count
         })
         return sum
+    },
+
+    totalOrderCount: (state) => {
+        return state.bookOrders.length
     }
 }
 

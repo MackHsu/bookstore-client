@@ -49,8 +49,8 @@
     <div class="commit-orders">
       <span>总价：{{totalPrice}}</span>
       <el-button type="danger"
-                 @click=";"
-                 style="margin-left: 10px;"> 提交订单
+                 @click="jumpCommit"
+                 style="margin-left: 10px;">提交订单
       </el-button>
     </div>
   </div>
@@ -75,6 +75,9 @@ export default {
     }
   },
   methods: {
+    jumpCommit () {
+      window.location.href = "#/commit-orders"
+    },
     showDialog (index) {
       this.dialogVisible = true
       this.indexToDelete = index

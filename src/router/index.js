@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Store from '../views/Store.vue'
 import Cart from '../views/Cart.vue'
+import CommitOrders from '../views/CommitOrders.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/cart',
     component: Cart
+  },
+  {
+    path: '/commit-orders',
+    component: CommitOrders
   }
 ]
 
