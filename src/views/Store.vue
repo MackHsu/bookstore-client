@@ -7,8 +7,8 @@
         )"
                 :key="index"
                 :name="book.name"
-                :author="book.author"
-                :desc="book.desc"
+                :author="book.publisher"
+                :desc="book.info"
                 :price="book.price" />
     </el-row>
 
@@ -29,7 +29,8 @@ export default {
 
   data () {
     return {
-      pageIndex: 1
+      pageIndex: 1,
+      books: []
     };
   },
 
@@ -39,7 +40,7 @@ export default {
 
   computed: {
     ...mapState({
-      books: state => state.Books.books
+     // books: state => state.Books.books
     })
   },
 
@@ -48,6 +49,16 @@ export default {
       this.pageIndex = currentPage;
       scrollTo(0, 0);
     }
+  },
+  mounted() {
+    console.log("mounted")
+    this.axios.get("/book/all").then((response) => {
+      console.log(response)
+      this.books = response.data
+      console.log(this.books)
+    }).catch((error) => {
+      console.log(error)
+    })
   }
 };
 </script>
