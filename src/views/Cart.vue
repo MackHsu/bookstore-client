@@ -1,5 +1,5 @@
 <template>
-  <div class="cart">
+  <div style="margin: 20px">
     <el-table :data="tableData"
               border
               stripe>
@@ -67,7 +67,6 @@
                    @click="clearCart">确 定</el-button>
       </span>
     </el-dialog>
-
   </div>
 </template>
 
@@ -116,12 +115,7 @@ export default {
 }
 
 .commit-orders {
-  margin-top: 5px;
-  margin-right: 10px;
+  margin-top: 10px;
   text-align: end;
-}
-
-.el-table {
-  margin: 20px;
 }
 </style>
