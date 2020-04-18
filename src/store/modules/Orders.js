@@ -21,6 +21,10 @@ const state = {
 const mutations = {
     deleteOrder (state, index) {
         state.bookOrders.splice(index, 1)
+    },
+
+    clearCart () {
+        state.bookOrders.length = 0
     }
 }
 

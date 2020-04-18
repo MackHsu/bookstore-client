@@ -37,22 +37,37 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog :visible.sync="dialogVisible"
+    <el-dialog :visible.sync="dialog1Visible"
                width="30%">
       <span>确定删除吗？</span>
       <span slot="footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button @click="dialog1Visible = false">取 消</el-button>
         <el-button type="danger"
                    @click="deleteOrder(indexToDelete)">确 定</el-button>
       </span>
     </el-dialog>
     <div class="commit-orders">
       <span>总价：{{totalPrice}}</span>
+      <el-button type="warning"
+                 @click="dialog2Visible = true"
+                 style="margin-left: 10px">
+        清空购物车
+      </el-button>
       <el-button type="danger"
                  @click="jumpCommit"
                  style="margin-left: 10px;">提交订单
       </el-button>
     </div>
+    <el-dialog :visible.sync="dialog2Visible"
+               width="30%">
+      确定清空购物车吗？
+      <span slot="footer">
+        <el-button @click="dialog2Visible = false">取 消</el-button>
+        <el-button type="danger"
+                   @click="clearCart">确 定</el-button>
+      </span>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -62,7 +77,8 @@ export default {
   name: 'Cart',
   data () {
     return {
-      dialogVisible: false,
+      dialog1Visible: false,
+      dialog2Visible: false,
       indexToDelete: 0
     }
   },
@@ -79,12 +95,16 @@ export default {
       window.location.href = "#/commit-orders"
     },
     showDialog (index) {
-      this.dialogVisible = true
+      this.dialog1Visible = true
       this.indexToDelete = index
     },
     deleteOrder (index) {
       this.$store.commit('deleteOrder', index)
-      this.dialogVisible = false
+      this.dialog1Visible = false
+    },
+    clearCart () {
+      this.$store.commit('clearCart')
+      this.dialog2Visible = false
     }
   }
 }
@@ -99,5 +119,9 @@ export default {
   margin-top: 5px;
   margin-right: 10px;
   text-align: end;
+}
+
+.el-table {
+  margin: 20px;
 }
 </style>
