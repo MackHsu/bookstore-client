@@ -9,7 +9,8 @@
                 :name="book.name"
                 :author="book.publisher"
                 :desc="book.info"
-                :price="book.price" />
+                :price="book.price"
+                :imgPath="book.imgPath" />
     </el-row>
 
     <el-pagination layout="total, prev, pager, next, jumper"
