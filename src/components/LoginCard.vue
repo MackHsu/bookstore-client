@@ -83,19 +83,25 @@ export default {
       this.$emit("listen", "setUpCard");
     },
     login: function() {
-      console.log("try login")
+      var cur = this;
+      console.log("try login");
       this.$refs.loginForm.validate(valid => {
         if (valid) {
+          // console.log(cur.loginForm.account, cur.loginForm.pass);
           this.axios
             .post("/server/user/login", {
-              account: this.account,
-              password: this.password
+              account: cur.loginForm.account,
+              password: cur.loginForm.pass
             })
             .then(response => {
-              console.log(this.account);
-              this.$store.commit('successLogin', this.account)
-              this.$router.push({ path: "/store" });
-              console.log(this.$store.getters.ifLogin, this.$store.getters.userAccount)
+              console.log('login response', response);
+              if (response.status === 200) {
+                // console.log(cur.loginForm.account)
+                cur.$store.commit("successLogin", cur.loginForm.account);
+                cur.$router.push({ path: "/store" });
+              } else {
+                alert("账号或密码错误");
+              }
             })
             .catch(error => {
               console.log(error);
